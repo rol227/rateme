@@ -1,0 +1,11 @@
+<%= form_for @group, html: { multipart: true } do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.fields_for :images do |image_builder| %>
+		<p>
+			<%= image_builder.label :pic %>
+		  <%= image_builder.file_field :pic %>
+		</p>
+	<% end %>
+	<%= f.submit %>
+<% end %>

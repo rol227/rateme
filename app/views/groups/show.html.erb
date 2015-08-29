@@ -1,0 +1,11 @@
+<h1>Groups</h1>
+
+<%= link_to 'New Group', new_group_path %></br>
+
+<% @groups.each do |group| %>
+  <% group.images.each do |image| %>
+    <%= image_tag image.pic.url(:medium) %>
+    <%= pluralize(image.votes.count, "vote") %>
+    <%= button_to '+1', image_upvote_path(image), method: :post %>
+  <% end %>
+<% end %>
