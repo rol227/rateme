@@ -1,0 +1,7 @@
+<% @group = @groups.limit(1) %>
+<% @group do |group| %>
+	<% group.images.each do |image| %>
+		<%= image_tag image.pic.url(:medium) %>
+    <%= button_to '+1', image_upvote_path(image), remote: true, method: :post %>
+  <% end %>
+<% end %>

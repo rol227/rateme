@@ -1,7 +1,8 @@
 class ImagesController < ApplicationController
+	
 	def upvote
 		@image = Image.find(params[:image_id])
 		@image.votes.create
-		redirect_to groups_path
+		redirect_to root_path
 	end
 end
